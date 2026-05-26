@@ -184,6 +184,8 @@ h1 {
 
 .photo-visual {
   display: grid;
+  grid-template-columns: minmax(180px, 0.82fr) minmax(150px, 0.48fr);
+  gap: clamp(0.85rem, 2vw, 1.4rem);
   align-items: center;
 }
 
@@ -197,8 +199,8 @@ h1 {
 .portrait-frame {
   position: relative;
   z-index: 1;
-  width: min(100%, 720px);
-  aspect-ratio: 1.34;
+  width: 100%;
+  aspect-ratio: 1;
   margin: 0;
   overflow: hidden;
   background: white;
@@ -208,6 +210,27 @@ h1 {
 }
 
 .portrait-frame img {
+  display: block;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+.cv-snapshot {
+  position: relative;
+  z-index: 1;
+  width: 100%;
+  aspect-ratio: 595 / 842;
+  margin: 0;
+  overflow: hidden;
+  background: white;
+  border: 1px solid rgba(217, 228, 223, 0.85);
+  border-radius: 8px;
+  box-shadow: var(--shadow);
+  transform: rotate(3deg);
+}
+
+.cv-snapshot img {
   display: block;
   width: 100%;
   height: 100%;
@@ -575,6 +598,10 @@ footer a {
     min-height: 520px;
   }
 
+  .photo-visual {
+    grid-template-columns: minmax(0, 1fr) minmax(130px, 0.45fr);
+  }
+
   .profile-strip {
     display: grid;
   }
@@ -610,5 +637,15 @@ footer a {
 
   .hero-visual {
     min-height: 430px;
+  }
+
+  .photo-visual {
+    grid-template-columns: minmax(0, 1fr);
+  }
+
+  .cv-snapshot {
+    width: min(66%, 230px);
+    justify-self: end;
+    margin-top: -5.8rem;
   }
 }
